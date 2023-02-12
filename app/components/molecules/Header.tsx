@@ -29,8 +29,8 @@ const styles = (colors?: IColors) =>
       paddingVertical: 8,
     },
     image: {
-      height: 40,
-      width: 40,
+      height: 36,
+      width: 36,
       backgroundColor: colors?.grey[100],
       borderRadius: 50,
     },

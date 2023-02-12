@@ -90,50 +90,14 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import { Header } from "../components";
+import Search from "../components/molecules/Search";
 
 const styles = StyleSheet.create({
   safeAreaView: {
     paddingTop: 50,
+    paddingBottom: 8,
     backgroundColor: "white",
-  },
-  headerContainer: {
-    flexDirection: "row",
-    paddingBottom: 3,
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 4,
-  },
-  image: {
-    height: 38,
-    width: 38,
-    backgroundColor: "#ddd",
-    padding: 4,
-    borderRadius: 50,
-  },
-  textContainer: {
     flex: 1,
-  },
-  deliverNowText: {
-    fontWeight: "bold",
-    color: "#999",
-    fontSize: 10,
-  },
-  locationText: {
-    fontWeight: "bold",
-    fontSize: 24,
-  },
-  searchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: 4,
-    marginHorizontal: 8,
-    paddingHorizontal: 8,
-  },
-  searchInput: {
-    flexDirection: "row",
-    flex: 1,
-    backgroundColor: "#ddd",
-    padding: 6,
   },
   scrollView: {
     backgroundColor: "#f2f2f2",
@@ -152,26 +116,16 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <Header />
+      <Search />
 
-      {/* <View style={styles.searchContainer}>
-        <View style={styles.searchInput}>
-          <MagnifyingGlassCircleIcon color="gray" size={20} />
-          <TextInput
-            placeholder="Restaurants and cuisines"
-            keyboardType="default"
-          />
-        </View>
-        <AdjustmentsVerticalIcon color="#00CCBB" />
-      </View> */}
-
-      {/* <ScrollView
+      <ScrollView
         style={styles.scrollView}
         contentContainerStyle={{
           paddingBottom: 100,
         }}
       >
         <Categories />
-      </ScrollView> */}
+      </ScrollView>
     </SafeAreaView>
   );
 };

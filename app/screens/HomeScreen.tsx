@@ -89,65 +89,12 @@ import {
   AdjustmentsVerticalIcon,
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
-
-const HomeScreen = () => {
-  const navigation = useNavigation();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
-
-  return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View style={styles.headerContainer}>
-        <Image
-          source={{
-            uri: "http://links.papareact.com/wru",
-          }}
-          style={styles.image}
-        />
-
-        <View style={styles.textContainer}>
-          <Text style={styles.deliverNowText}>Deliver Now!</Text>
-          <Text style={styles.locationText}>
-            Current Location
-            <ChevronDownIcon size={20} color="#00CCBB" />
-          </Text>
-        </View>
-
-        <UserIcon size={35} color="#00CCBB" />
-      </View>
-
-      <View style={styles.searchContainer}>
-        <View style={styles.searchInput}>
-          <MagnifyingGlassCircleIcon color="gray" size={20} />
-          <TextInput
-            placeholder="Restaurants and cuisines"
-            keyboardType="default"
-          />
-        </View>
-        <AdjustmentsVerticalIcon color="#00CCBB" />
-      </View>
-
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={{
-          paddingBottom: 100,
-        }}
-      >
-        <Categories />
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+import { Header } from "../components";
 
 const styles = StyleSheet.create({
   safeAreaView: {
-    paddingTop: 30,
+    paddingTop: 50,
     backgroundColor: "white",
-    flex: 1,
   },
   headerContainer: {
     flexDirection: "row",
@@ -192,5 +139,41 @@ const styles = StyleSheet.create({
     backgroundColor: "#f2f2f2",
   },
 });
+
+const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <Header />
+
+      {/* <View style={styles.searchContainer}>
+        <View style={styles.searchInput}>
+          <MagnifyingGlassCircleIcon color="gray" size={20} />
+          <TextInput
+            placeholder="Restaurants and cuisines"
+            keyboardType="default"
+          />
+        </View>
+        <AdjustmentsVerticalIcon color="#00CCBB" />
+      </View> */}
+
+      {/* <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={{
+          paddingBottom: 100,
+        }}
+      >
+        <Categories />
+      </ScrollView> */}
+    </SafeAreaView>
+  );
+};
 
 export default HomeScreen;

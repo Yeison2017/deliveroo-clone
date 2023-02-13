@@ -1,20 +1,5 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  StyleSheet,
-  TextInput,
-  ScrollView,
-} from "react-native";
-import React, { useLayoutEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
-import {
-  UserIcon,
-  ChevronDownIcon,
-  MagnifyingGlassCircleIcon,
-  AdjustmentsVerticalIcon,
-} from "react-native-heroicons/outline";
+import { View, Text, Image, StyleSheet } from "react-native";
+import { UserIcon, ChevronDownIcon } from "react-native-heroicons/outline";
 
 import { colors } from "../../theme/stylesGlobal";
 import { IColors } from "../../interfaces";

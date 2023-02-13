@@ -1,4 +1,6 @@
-export { default as Categories } from "./Categories";
-export { default as CategoryCard } from "./CategoryCard";
+export { default as CategoryCard } from "./molecules/CategoryCard";
 export { default as Header } from "./molecules/Header";
+export { default as RestaurantCard } from "./molecules/RestaurantCard";
 export { default as Search } from "./molecules/Search";
+export { default as Categories } from "./organisms/Categories";
+export { default as FeaturedRow } from "./organisms/FeaturedRow";

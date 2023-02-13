@@ -1,4 +1,4 @@
-import { IColors } from "../interfaces";
+import { IColors, IText } from "../interfaces";
 
 export const colors: IColors = {
   grey: {
@@ -25,4 +25,24 @@ export const colors: IColors = {
     800: "#00464e",
     900: "#00191c",
   },
+  green: {
+    50: "#e7faeb",
+    100: "#c7e7d0",
+    200: "#a7d7b2",
+    300: "#86c592",
+    400: "#64b471",
+    500: "#4b9b5d",
+    600: "#39784c",
+    700: "#275639",
+    800: "#153523",
+    900: "#001309",
+  },
+};
+
+export const text: IText = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 18,
+  xl: 20,
 };

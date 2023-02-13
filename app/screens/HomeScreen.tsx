@@ -88,8 +88,8 @@ import {
   MagnifyingGlassCircleIcon,
   AdjustmentsVerticalIcon,
 } from "react-native-heroicons/outline";
-import Categories from "../components/Categories";
-import { Header } from "../components";
+import Categories from "../components/organisms/Categories";
+import { FeaturedRow, Header } from "../components";
 import Search from "../components/molecules/Search";
 
 const styles = StyleSheet.create({
@@ -125,6 +125,21 @@ const HomeScreen = () => {
         }}
       >
         <Categories />
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
+        <FeaturedRow
+          title="Tasty Discounts"
+          description="Everyone's been enjoying these juicy discounts!"
+          featuredCategory="discounts"
+        />
+        <FeaturedRow
+          title="Offers near you!"
+          description="Why not support your local restaurant tonight!"
+          featuredCategory="offers"
+        />
       </ScrollView>
     </SafeAreaView>
   );

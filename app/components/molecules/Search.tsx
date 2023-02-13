@@ -1,10 +1,8 @@
 import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 import {
-  UserIcon,
-  ChevronDownIcon,
-  MagnifyingGlassCircleIcon,
   AdjustmentsVerticalIcon,
+  MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
 import { IColors } from "../../interfaces";
 import { colors } from "../../theme";
@@ -34,7 +32,7 @@ const Search = () => {
   return (
     <View style={styles().searchContainer}>
       <View style={styles(colors).searchInput}>
-        <MagnifyingGlassCircleIcon color={colors.grey[500]} size={20} />
+        <MagnifyingGlassIcon color={colors.grey[500]} size={20} />
         <TextInput
           placeholder="Restaurants and cuisines"
           keyboardType="default"

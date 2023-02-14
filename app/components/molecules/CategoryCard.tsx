@@ -25,7 +25,7 @@ export default CategoryCard;
 const styles = StyleSheet.create({
   container: {
     position: "relative",
-    marginRight: 4,
+    marginRight: 8,
   },
   image: {
     height: 80,

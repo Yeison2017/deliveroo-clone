@@ -37,7 +37,7 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
 
         setRestaurants(data?.restaurants);
       });
-  }, []);
+  }, [id]);
 
   return (
     <View>

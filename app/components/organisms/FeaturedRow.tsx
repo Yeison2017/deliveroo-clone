@@ -1,15 +1,44 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { colors, text } from "../../theme";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import RestaurantCard from "../molecules/RestaurantCard";
+import sanityClient from "../../service/sanity";
+import { IRestaurants } from "../../interfaces";
 
 interface IFeatureRow {
+  id: string;
   title: string;
   description: string;
 }
 
-const FeaturedRow = ({ title, description }: IFeatureRow) => {
+const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
+  const [restaurants, setRestaurants] = useState<IRestaurants[]>([]);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `
+        *[_type == "featured" && _id == $id] {
+          ...,
+          restaurants[]->{
+            ...,
+            dishes[]->,
+            type-> {
+              name
+            }
+          },
+        }[0]
+      `,
+        { id }
+      )
+      .then((data) => {
+        // console.log(JSON.stringify(data?.restaurants[1]._id, null, 2));
+
+        setRestaurants(data?.restaurants);
+      });
+  }, []);
+
   return (
     <View>
       <View style={styles.containerTitle}>
@@ -27,54 +56,22 @@ const FeaturedRow = ({ title, description }: IFeatureRow) => {
         showsHorizontalScrollIndicator={false}
         style={styles.body}
       >
-        <RestaurantCard
-          id={123}
-          imgUrl="https://lexica-serve-encoded-images2.sharif.workers.dev/full_jpg/e949ef01-344c-492e-979d-5d7d31e7c871"
-          title="Yo! Suchi"
-          rating={4.5}
-          genre="Japonese"
-          address="123 Min St"
-          short_description="This is a Test description"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <RestaurantCard
-          id={123}
-          imgUrl="https://lexica-serve-encoded-images2.sharif.workers.dev/full_jpg/840fa59e-2b43-4ed0-8ebe-ba5f12b44a79"
-          title="Yo! Suchi"
-          rating={4.5}
-          genre="Japonese"
-          address="123 Min St"
-          short_description="This is a Test description"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <RestaurantCard
-          id={123}
-          imgUrl="https://lexica-serve-encoded-images2.sharif.workers.dev/full_jpg/59aa054d-e933-4fee-907b-d7a895d6bf90"
-          title="Yo! Suchi"
-          rating={4.5}
-          genre="Japonese"
-          address="123 Min St"
-          short_description="This is a Test description"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-        <RestaurantCard
-          id={123}
-          imgUrl="https://lexica-serve-encoded-images2.sharif.workers.dev/full_jpg/ed7ec87c-d4a6-4441-831d-689a075c8093"
-          title="Yo! Suchi"
-          rating={4.5}
-          genre="Japonese"
-          address="123 Min St"
-          short_description="This is a Test description"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
+        {restaurants &&
+          restaurants?.map((restaurant: IRestaurants) => (
+            <RestaurantCard
+              key={restaurant._id}
+              id={restaurant._id}
+              imgUrl={restaurant?.image?.asset?._ref}
+              title={restaurant.name}
+              dishes={restaurant.dishes}
+              rating={restaurant.rating}
+              address={restaurant.address}
+              short_description={restaurant.short_description}
+              genre={restaurant.type?.name}
+              long={restaurant.long}
+              lat={restaurant.lat}
+            />
+          ))}
       </ScrollView>
     </View>
   );

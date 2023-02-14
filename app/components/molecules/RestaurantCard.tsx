@@ -7,9 +7,10 @@ import {
 } from "react-native-heroicons/outline";
 import { colors, text } from "../../theme";
 import { IColors } from "../../interfaces";
+import { urlFor } from "../../service/sanity";
 
 interface IRestaurantCard {
-  id: number;
+  id: string;
   imgUrl: string;
   title: string;
   rating: number;
@@ -22,25 +23,28 @@ interface IRestaurantCard {
 }
 
 const RestaurantCard = ({
-  id,
-  imgUrl,
-  title,
-  rating,
-  genre,
-  address,
-  short_description,
-  dishes,
-  long,
-  lat,
+  id = "",
+  imgUrl = "",
+  title = "",
+  rating = 0,
+  genre = "",
+  address = "",
+  short_description = "",
+  dishes = [],
+  long = 0,
+  lat = 0,
 }: IRestaurantCard) => {
   return (
     <TouchableOpacity style={styles().container}>
-      <Image
-        source={{
-          uri: imgUrl,
-        }}
-        style={styles().image}
-      />
+      {imgUrl && (
+        <Image
+          source={{
+            uri: urlFor(imgUrl).url(),
+          }}
+          style={styles().image}
+        />
+      )}
+
       <View style={styles().containerTitle}>
         <Text style={styles().title}>{title}</Text>
 

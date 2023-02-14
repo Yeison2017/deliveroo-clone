@@ -32,6 +32,8 @@ const HomeScreen = () => {
     `
       )
       .then((data: any) => {
+        console.log(JSON.stringify(data, null, 2));
+
         setFeaturedCategories(data);
       });
   }, []);
@@ -52,6 +54,7 @@ const HomeScreen = () => {
         {featuredCategories.map((category: IFeatured) => (
           <FeaturedRow
             key={category._id}
+            id={category._id}
             title={category.name}
             description={category.short_description}
           />

@@ -7,10 +7,9 @@ import RestaurantCard from "../molecules/RestaurantCard";
 interface IFeatureRow {
   title: string;
   description: string;
-  featuredCategory: string;
 }
 
-const FeaturedRow = ({ title, description, featuredCategory }: IFeatureRow) => {
+const FeaturedRow = ({ title, description }: IFeatureRow) => {
   return (
     <View>
       <View style={styles.containerTitle}>

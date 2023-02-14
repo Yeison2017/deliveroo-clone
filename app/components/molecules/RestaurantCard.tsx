@@ -8,8 +8,9 @@ import {
 import { colors, text } from "../../theme";
 import { IColors } from "../../interfaces";
 import { urlFor } from "../../service/sanity";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 
-interface IRestaurantCard {
+export interface IRestaurantCard {
   id: string;
   imgUrl: string;
   title: string;
@@ -34,8 +35,25 @@ const RestaurantCard = ({
   long = 0,
   lat = 0,
 }: IRestaurantCard) => {
+  const navigation: NavigationProp<any> = useNavigation();
   return (
-    <TouchableOpacity style={styles().container}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Restaurant", {
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+          long,
+          lat,
+        } as IRestaurantCard)
+      }
+      style={styles().container}
+    >
       {imgUrl && (
         <Image
           source={{

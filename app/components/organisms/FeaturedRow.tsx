@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     alignItems: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
   },
   title: {
     fontWeight: "bold",
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: text.xs,
     color: colors.grey[500],
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
   },
   body: {
     paddingTop: 8,

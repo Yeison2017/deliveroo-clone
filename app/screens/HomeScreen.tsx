@@ -31,11 +31,7 @@ const HomeScreen = () => {
       }
     `
       )
-      .then((data: any) => {
-        console.log(JSON.stringify(data, null, 2));
-
-        setFeaturedCategories(data);
-      });
+      .then((data: any) => setFeaturedCategories(data));
   }, []);
 
   return (

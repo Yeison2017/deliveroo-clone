@@ -1,12 +1,24 @@
 import { SafeAreaView, StyleSheet, ScrollView } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import Categories from "../components/organisms/Categories";
-import { FeaturedRow, Header } from "../components";
-import Search from "../components/molecules/Search";
 import sanityClient from "../service/sanity";
 
 import { IFeatured } from "../interfaces";
+import { FeaturedRow, Header, HeaderHome } from "../components";
+import Categories from "../components/organisms/Categories";
+import Search from "../components/molecules/Search";
+
+const styles = StyleSheet.create({
+  safeAreaView: {
+    paddingTop: 50,
+    paddingBottom: 8,
+    backgroundColor: "white",
+    flex: 1,
+  },
+  scrollView: {
+    backgroundColor: "#f2f2f2",
+  },
+});
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -36,8 +48,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <Header />
-      <Search />
+      <HeaderHome />
 
       <ScrollView
         style={styles.scrollView}
@@ -61,15 +72,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  safeAreaView: {
-    paddingTop: 50,
-    paddingBottom: 8,
-    backgroundColor: "white",
-    flex: 1,
-  },
-  scrollView: {
-    backgroundColor: "#f2f2f2",
-  },
-});

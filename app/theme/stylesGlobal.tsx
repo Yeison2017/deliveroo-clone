@@ -45,4 +45,6 @@ export const text: IText = {
   md: 16,
   lg: 18,
   xl: 20,
+  xl2: 25,
+  xl3: 30,
 };

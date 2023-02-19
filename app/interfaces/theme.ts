@@ -22,4 +22,6 @@ export interface IText {
   md: number;
   lg: number;
   xl: number;
+  xl2: number;
+  xl3: number;
 }

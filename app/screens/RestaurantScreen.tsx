@@ -12,11 +12,18 @@ import {
   useRoute,
   useNavigation,
 } from "@react-navigation/native";
+import {
+  ArrowLeftIcon,
+  ChevronRightIcon,
+  MapPinIcon,
+  StarIcon,
+} from "react-native-heroicons/solid";
+import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
+
 import { IRestaurantCard } from "../components/molecules/RestaurantCard";
 import { IColors } from "../interfaces";
 import { urlFor } from "../service/sanity";
-import { colors } from "../theme";
-import { ArrowLeftIcon } from "react-native-heroicons/solid";
+import { colors, text } from "../theme";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -58,6 +65,41 @@ const RestaurantScreen = () => {
           <ArrowLeftIcon size={20} color={colors.primary[500]} />
         </TouchableOpacity>
       </View>
+
+      <View style={styles().containerTitle}>
+        <View className="px-4 pt-4">
+          <Text style={styles().title}>{title}</Text>
+          <View className="flex-row space-x-2 my-1">
+            <View className="flex-row items-center space-x-1">
+              <StarIcon size={22} color={colors.green[500]} opacity={0.5} />
+              <Text className="text-xs text-gray-500">
+                <Text className="text-green-500">{rating}</Text> · {genre}
+              </Text>
+            </View>
+
+            <View className="flex-row items-center space-x-1">
+              <MapPinIcon size={22} color="grey" opacity={0.4} />
+              <Text className="text-xs text-gray-500">
+                <Text className="text-gray-500">Nearby · {address}</Text>
+              </Text>
+            </View>
+          </View>
+
+          <Text className="text-gray-500 mt-2 pb-4">{short_description}</Text>
+        </View>
+
+        <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+          <QuestionMarkCircleIcon color="gray" opacity={0.6} size={20} />
+          <Text className="pl-2 flex-1 text-md font-bold">
+            Have a food allergy?
+          </Text>
+          <ChevronRightIcon color={colors.primary[500]} />
+        </TouchableOpacity>
+      </View>
+
+      <View>
+        <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
+      </View>
     </ScrollView>
   );
 };
@@ -82,5 +124,12 @@ const styles = (colors?: IColors) =>
       padding: 12,
       backgroundColor: colors?.grey[50],
       borderRadius: 50,
+    },
+    containerTitle: {
+      backgroundColor: "white",
+    },
+    title: {
+      fontSize: text.xl3,
+      fontWeight: "bold",
     },
   });

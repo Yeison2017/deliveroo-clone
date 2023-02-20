@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { colors, text } from "../../theme";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
@@ -39,25 +39,12 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
 
   return (
     <View>
-      <View
-        // style={styles.containerTitle}
-        className="mt-4 flex-row items-center justify-between px-4"
-      >
-        <Text
-          // style={styles.title}
-          className="font-bold text-lg"
-        >
-          {title}
-        </Text>
+      <View className="mt-4 flex-row items-center justify-between px-4">
+        <Text className="font-bold text-lg">{title}</Text>
         <ArrowRightIcon color={colors.primary[500]} />
       </View>
 
-      <Text
-        // style={styles.subtitle}
-        className="text-xs text-gray-500 px-4"
-      >
-        {description}
-      </Text>
+      <Text className="text-xs text-gray-500 px-4">{description}</Text>
 
       <ScrollView
         horizontal
@@ -65,7 +52,6 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
           paddingHorizontal: 15,
         }}
         showsHorizontalScrollIndicator={false}
-        // style={styles.body}
         className="pt-4"
       >
         {restaurants &&
@@ -90,25 +76,3 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
 };
 
 export default FeaturedRow;
-
-const styles = StyleSheet.create({
-  containerTitle: {
-    flexDirection: "row",
-    marginTop: 8,
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: text.xl,
-  },
-  subtitle: {
-    fontSize: text.xs,
-    color: colors.grey[500],
-    paddingHorizontal: 16,
-  },
-  body: {
-    paddingTop: 8,
-  },
-});

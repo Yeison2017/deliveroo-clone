@@ -8,14 +8,23 @@ interface ICategoryCard {
 
 const CategoryCard = ({ imgUrl, title }: ICategoryCard) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      // style={styles.container}
+      className="relative mr-2"
+    >
       <Image
         source={{
           uri: imgUrl,
         }}
-        style={styles.image}
+        // style={styles.image}
+        className="h-20 w-20 rounded"
       />
-      <Text style={styles.title}>{title}</Text>
+      <Text
+        // style={styles.title}
+        className="absolute bottom-1 left-1 text-white font-bold"
+      >
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

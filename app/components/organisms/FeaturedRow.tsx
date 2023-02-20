@@ -33,20 +33,31 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
         { id }
       )
       .then((data) => {
-        // console.log(JSON.stringify(data?.restaurants[1]._id, null, 2));
-
         setRestaurants(data?.restaurants);
       });
   }, [id]);
 
   return (
     <View>
-      <View style={styles.containerTitle}>
-        <Text style={styles.title}>{title}</Text>
+      <View
+        // style={styles.containerTitle}
+        className="mt-4 flex-row items-center justify-between px-4"
+      >
+        <Text
+          // style={styles.title}
+          className="font-bold text-lg"
+        >
+          {title}
+        </Text>
         <ArrowRightIcon color={colors.primary[500]} />
       </View>
 
-      <Text style={styles.subtitle}>{description}</Text>
+      <Text
+        // style={styles.subtitle}
+        className="text-xs text-gray-500 px-4"
+      >
+        {description}
+      </Text>
 
       <ScrollView
         horizontal
@@ -54,7 +65,8 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
           paddingHorizontal: 15,
         }}
         showsHorizontalScrollIndicator={false}
-        style={styles.body}
+        // style={styles.body}
+        className="pt-4"
       >
         {restaurants &&
           restaurants?.map((restaurant: IRestaurants) => (

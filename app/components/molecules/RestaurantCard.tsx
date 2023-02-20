@@ -1,10 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { StarIcon } from "react-native-heroicons/solid";
-import {
-  ArrowLeftOnRectangleIcon,
-  MapPinIcon,
-} from "react-native-heroicons/outline";
+import { MapPinIcon } from "react-native-heroicons/outline";
 import { colors, text } from "../../theme";
 import { IColors } from "../../interfaces";
 import { urlFor } from "../../service/sanity";
@@ -52,30 +49,60 @@ const RestaurantCard = ({
           lat,
         } as IRestaurantCard)
       }
-      style={styles().container}
+      // style={styles().container}
+      className={"bg-white mr-3"}
     >
       {imgUrl && (
         <Image
           source={{
             uri: urlFor(imgUrl).url(),
           }}
-          style={styles().image}
+          // style={styles().image}
+          className="h-36 w-64 rounded-sm"
         />
       )}
 
-      <View style={styles().containerTitle}>
-        <Text style={styles().title}>{title}</Text>
+      <View
+        // style={styles().containerTitle}
+        className="px-3 pb-4"
+      >
+        <Text
+          // style={styles().title}
+          className="font-bold text-lg pt-2"
+        >
+          {title}
+        </Text>
 
-        <View style={styles().containerStar}>
+        <View
+          // style={styles().containerStar}
+          className="flex-row items-center space-x-1"
+        >
           <StarIcon color="green" opacity={0.5} size={22} />
-          <Text style={styles(colors).containerRating}>
-            <Text style={styles(colors).rating}>{rating}</Text> · {genre}
+          <Text
+            // style={styles(colors).containerRating}
+            className="text-xs text-gray-500"
+          >
+            <Text
+              // style={styles(colors).rating}
+              className="text-green-500"
+            >
+              {rating}
+            </Text>{" "}
+            · {genre}
           </Text>
         </View>
 
-        <View style={styles().containerAddress}>
-          <MapPinIcon color={colors.grey[500]} opacity={0.4} size={22} />
-          <Text style={styles(colors).address}>Nearby · {address}</Text>
+        <View
+          // style={styles().containerAddress}
+          className="flex-row items-center space-x-1"
+        >
+          <MapPinIcon color="gray" opacity={0.4} size={22} />
+          <Text
+            // style={styles(colors).address}
+            className="text-xs text-gray-500"
+          >
+            Nearby · {address}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

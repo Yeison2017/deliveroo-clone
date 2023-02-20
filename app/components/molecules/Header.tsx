@@ -42,20 +42,43 @@ const styles = (colors?: IColors) =>
 
 const Header = () => {
   return (
-    <View style={styles().headerContainer}>
+    // <View style={styles().headerContainer}>
+    <View className="flex-row pb-3 items-center mx-4 space-x-2">
       <Image
         source={{
           uri: "http://links.papareact.com/wru",
         }}
-        style={styles(colors).image}
+        // style={styles(colors).image}
+        className="h-7 w-7 bg-gray-300 p-4 rounded-full"
       />
 
-      <View style={styles().textContainer}>
-        <Text style={styles(colors).deliverNowText}>Deliver Now!</Text>
-        <View style={styles().containerTitle}>
-          <Text style={styles().locationText}>Current Location</Text>
+      <View
+        // style={styles().textContainer}
+        className="flex-1"
+      >
+        <Text
+          // style={styles(colors).deliverNowText}
+          className="font-bold text-gray-400 text-xs"
+        >
+          Deliver Now!
+        </Text>
+        <Text
+          // style={styles().locationText}
+          className="font-bold text-xl"
+        >
+          Current Location
           <ChevronDownIcon size={20} color={colors.primary[500]} />
-        </View>
+        </Text>
+
+        {/* <View style={styles().containerTitle}>
+          <Text
+            // style={styles().locationText}
+            className="font-bold text-xl"
+          >
+            Current Location
+          </Text>
+          <ChevronDownIcon size={20} color={colors.primary[500]} />
+        </View> */}
       </View>
 
       <UserIcon size={30} color={colors.primary[500]} />

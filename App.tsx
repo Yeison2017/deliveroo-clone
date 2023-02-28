@@ -1,14 +1,11 @@
 import Navigation from "./app/navigation/Navigation";
-import {
-  SafeAreaProvider,
-  initialWindowMetrics,
-} from "react-native-safe-area-context";
+import Providers from "./app/Providers";
 
 const App = () => {
   return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+    <Providers>
       <Navigation />
-    </SafeAreaProvider>
+    </Providers>
   );
 };
 

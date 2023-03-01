@@ -4,31 +4,27 @@ import Currency from "react-currency-formatter";
 import { urlFor } from "../../service/sanity";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
 import { colors } from "../../theme";
-import { useDispatch, useSelector } from "react-redux";
 import {
   addToBasket,
   removeFromBasket,
-  selectBasketItems,
   selectBasketItemsWithId,
 } from "../../store/slices/basketSlice";
 import { IDish } from "../../interfaces";
 
 import { useAppSelector, useAppDispatch } from "../../hooks";
 
-const DishRow = ({ id, name, description, price, image }: IDish) => {
+const DishRow = ({ _id, name, short_description, price, image }: IDish) => {
   const [isPressed, setIsPressed] = useState(false);
-  // const items = useSelector(selectBasketItems);
-  // const items = useAppSelector((state) => state.basket.items);
-  const items = useAppSelector((state) => selectBasketItemsWithId(state, id));
+  const items = useAppSelector((state) => selectBasketItemsWithId(state, _id));
   const dispatch = useAppDispatch();
 
   const addItemToBasket = () => {
-    dispatch(addToBasket({ id, name, description, price, image }));
+    dispatch(addToBasket({ _id, name, short_description, price, image }));
   };
 
   const removeItemFromBasket = () => {
     if (items.length == 0) return;
-    dispatch(removeFromBasket({ id }));
+    dispatch(removeFromBasket({ _id }));
   };
 
   return (
@@ -42,7 +38,7 @@ const DishRow = ({ id, name, description, price, image }: IDish) => {
         <View className="flex-row">
           <View className="flex-1 pr-2">
             <Text className="text-lg mb-1">{name}</Text>
-            <Text className="text-gray-400">{description}</Text>
+            <Text className="text-gray-400">{short_description}</Text>
             <Text className="text-gray-400 mt-2">
               <Currency quantity={price} currency="GBP" />
             </Text>

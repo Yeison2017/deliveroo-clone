@@ -1,4 +1,5 @@
 export { default as DishRow } from "./atoms/DishRow";
+export { default as BasketIcon } from "./molecules/BasketIcon";
 export { default as CategoryCard } from "./molecules/CategoryCard";
 export { default as Header } from "./molecules/Header";
 export { default as RestaurantCard } from "./molecules/RestaurantCard";

@@ -31,6 +31,7 @@ const RestaurantCard = ({
   lat = 0,
 }: IRestaurantCard) => {
   const navigation: NavigationProp<any> = useNavigation();
+
   return (
     <TouchableOpacity
       onPress={() =>

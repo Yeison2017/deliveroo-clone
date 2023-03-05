@@ -1,16 +1,17 @@
 import { ICategory } from "./categoryInterface";
+import { IDish } from "./dishInterface";
 
 export interface IRestaurants {
   _id: string;
   name: string;
   short_description: string;
-  image: IImage | null;
+  image: IImage;
   lat: number | null;
   long: number | null;
   address: string;
   rating: number | null;
   type: ICategory | null;
-  dishes: string[];
+  dishes: IDish[];
 }
 
 export interface IImage {

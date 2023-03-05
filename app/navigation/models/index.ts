@@ -1,8 +1,9 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { IRestaurants } from "../../interfaces";
 
 export type propsNavigationStack = {
   Home: undefined;
-  Restaurant: undefined;
+  Restaurant: IRestaurants;
   Basket: undefined;
 };
 

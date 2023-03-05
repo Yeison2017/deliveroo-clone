@@ -58,14 +58,14 @@ const FeaturedRow = ({ id, title, description }: IFeatureRow) => {
           restaurants?.map((restaurant: IRestaurants) => (
             <RestaurantCard
               key={restaurant._id}
-              id={restaurant._id}
-              imgUrl={restaurant?.image?.asset?._ref || ""}
-              title={restaurant.name}
+              _id={restaurant._id}
+              image={restaurant.image}
+              name={restaurant.name}
               dishes={restaurant.dishes}
               rating={restaurant.rating || 0}
               address={restaurant.address}
               short_description={restaurant.short_description}
-              genre={restaurant.type?.name || ""}
+              type={restaurant.type}
               long={restaurant.long || 0}
               lat={restaurant.lat || 0}
             />

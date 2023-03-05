@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { IDish, IRestaurants } from "../../interfaces";
+import { IRestaurants } from "../../interfaces";
 import { RootState } from "../store";
 
 interface InitialState {
@@ -32,7 +31,6 @@ export const restaurantSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { setRestaurant } = restaurantSlice.actions;
 
 export const selectRestauran = (state: RootState) => state.restaurant.resturant;

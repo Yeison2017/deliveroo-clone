@@ -31,7 +31,7 @@ const HomeScreen = () => {
       }
     `
       )
-      .then((data: any) => setFeaturedCategories(data));
+      .then((data: IFeatured[]) => setFeaturedCategories(data));
   }, []);
 
   return (

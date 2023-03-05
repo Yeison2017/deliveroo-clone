@@ -3,69 +3,59 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { urlFor } from "../../service/sanity";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
-
-export interface IRestaurantCard {
-  id: string;
-  imgUrl: string;
-  title: string;
-  rating: number;
-  genre: string;
-  address: string;
-  short_description: string;
-  dishes: Array<string> | null;
-  long: number;
-  lat: number;
-}
+import { useNavigation } from "@react-navigation/native";
+import { IRestaurants } from "../../interfaces";
+import { propsStack } from "../../navigation/models";
 
 const RestaurantCard = ({
-  id = "",
-  imgUrl = "",
-  title = "",
-  rating = 0,
-  genre = "",
-  address = "",
+  _id = "",
+  name = "",
   short_description = "",
-  dishes = [],
-  long = 0,
+  image,
   lat = 0,
-}: IRestaurantCard) => {
-  const navigation: NavigationProp<any> = useNavigation();
+  long = 0,
+  address = "",
+  rating = 0,
+  type = null,
+  dishes = [],
+}: IRestaurants) => {
+  const navigation = useNavigation<propsStack>();
 
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate("Restaurant", {
-          id,
-          imgUrl,
-          title,
-          rating,
-          genre,
-          address,
+          _id,
+          name,
           short_description,
-          dishes,
-          long,
+          image,
           lat,
-        } as IRestaurantCard)
+          long,
+          address,
+          rating,
+          type,
+          dishes,
+        })
       }
       className={"bg-white mr-3"}
     >
-      {imgUrl && (
+      {image && (
         <Image
           source={{
-            uri: urlFor(imgUrl).url(),
+            uri: urlFor(image).url(),
           }}
           className="h-36 w-64 rounded-sm"
         />
       )}
 
       <View className="px-3 pb-4">
-        <Text className="font-bold text-lg pt-2">{title}</Text>
+        <Text className="font-bold text-lg pt-2">{name}</Text>
 
         <View className="flex-row items-center space-x-1">
           <StarIcon color="green" opacity={0.5} size={22} />
           <Text className="text-xs text-gray-500">
-            <Text className="text-green-500">{rating}</Text> · {genre}
+            <Text className="text-green-500">{rating}</Text> ·{" "}
+            {type === null ? type : ""}
           </Text>
         </View>
 

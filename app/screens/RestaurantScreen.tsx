@@ -8,29 +8,33 @@ import {
   StarIcon,
 } from "react-native-heroicons/solid";
 import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
+import type { RouteProp } from "@react-navigation/native";
 
 import { urlFor } from "../service/sanity";
 import { colors } from "../theme";
 import { BasketIcon, DishRow } from "../components";
 import { IDish } from "../interfaces";
+import { propsNavigationStack, propsStack } from "../navigation/models";
+
+type RestaurantScreenRouteProp = RouteProp<propsNavigationStack, "Restaurant">;
 
 const RestaurantScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<propsStack>();
 
   const {
     params: {
-      id,
-      imgUrl,
-      title,
-      rating,
-      genre,
-      address,
+      _id,
+      name,
       short_description,
-      dishes,
-      long,
+      image,
       lat,
+      long,
+      address,
+      rating,
+      type,
+      dishes,
     },
-  } = useRoute<any>();
+  } = useRoute<RestaurantScreenRouteProp>();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -43,12 +47,14 @@ const RestaurantScreen = () => {
       <BasketIcon />
       <ScrollView>
         <View className="relative">
-          <Image
-            source={{
-              uri: urlFor(imgUrl).url(),
-            }}
-            className="w-full h-56 bg-gray-300 p-4"
-          />
+          {image && (
+            <Image
+              source={{
+                uri: urlFor(image).url(),
+              }}
+              className="w-full h-56 bg-gray-300 p-4"
+            />
+          )}
           <TouchableOpacity
             onPress={navigation.goBack}
             className="absolute top-14 left-5 p-2 bg-gray-100 rounded-full"
@@ -59,12 +65,13 @@ const RestaurantScreen = () => {
 
         <View className="bg-white">
           <View className="px-4 pt-4">
-            <Text className="text-3xl font-bold">{title}</Text>
+            <Text className="text-3xl font-bold">{name}</Text>
             <View className="flex-row space-x-2 my-1">
               <View className="flex-row items-center space-x-1">
                 <StarIcon size={22} color={colors.green[500]} opacity={0.5} />
                 <Text className="text-xs text-gray-500">
-                  <Text className="text-green-500">{rating}</Text> · {genre}
+                  <Text className="text-green-500">{rating}</Text> ·{" "}
+                  {type == null ? null : ""}
                 </Text>
               </View>
 

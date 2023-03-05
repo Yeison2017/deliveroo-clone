@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import {
   ArrowLeftIcon,
@@ -15,11 +15,14 @@ import { colors } from "../theme";
 import { BasketIcon, DishRow } from "../components";
 import { IDish } from "../interfaces";
 import { propsNavigationStack, propsStack } from "../navigation/models";
+import { useAppDispatch } from "../hooks/useStore";
+import { setRestaurant } from "../store";
 
 type RestaurantScreenRouteProp = RouteProp<propsNavigationStack, "Restaurant">;
 
 const RestaurantScreen = () => {
   const navigation = useNavigation<propsStack>();
+  const dispatch = useAppDispatch();
 
   const {
     params: {
@@ -35,6 +38,23 @@ const RestaurantScreen = () => {
       dishes,
     },
   } = useRoute<RestaurantScreenRouteProp>();
+
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        _id,
+        name,
+        short_description,
+        image,
+        lat,
+        long,
+        address,
+        rating,
+        type,
+        dishes,
+      })
+    );
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({

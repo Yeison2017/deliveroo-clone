@@ -5,7 +5,7 @@ export interface IRestaurants {
   _id: string;
   name: string;
   short_description: string;
-  image: IImage;
+  image: IImage | null;
   lat: number | null;
   long: number | null;
   address: string;

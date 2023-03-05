@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
 import { IRestaurants } from "../../interfaces";
 import { RootState } from "../store";
 
@@ -25,7 +27,7 @@ export const restaurantSlice = createSlice({
   name: "restaurant",
   initialState,
   reducers: {
-    setRestaurant: (state, action) => {
+    setRestaurant: (state, action: PayloadAction<IRestaurants>) => {
       state.resturant = action.payload;
     },
   },
@@ -33,4 +35,5 @@ export const restaurantSlice = createSlice({
 
 export const { setRestaurant } = restaurantSlice.actions;
 
-export const selectRestauran = (state: RootState) => state.restaurant.resturant;
+export const selectRestaurant = (state: RootState) =>
+  state.restaurant.resturant;

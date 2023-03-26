@@ -1,3 +1,4 @@
+export { default as SafeAreaLayout } from "./SafeAreaLayout";
 export { default as DishRow } from "./atoms/DishRow";
 export { default as BasketIcon } from "./molecules/BasketIcon";
 export { default as CategoryCard } from "./molecules/CategoryCard";

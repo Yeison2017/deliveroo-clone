@@ -6,6 +6,7 @@ export type propsNavigationStack = {
   Restaurant: IRestaurants;
   Basket: undefined;
   PreparingOrder: undefined;
+  Delivery: undefined;
 };
 
 export type propsStack = NativeStackNavigationProp<propsNavigationStack>;

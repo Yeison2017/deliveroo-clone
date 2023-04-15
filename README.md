@@ -11,11 +11,11 @@ Este proyecto es una aplicación móvil creada con React Native y Expo utilizand
 
 ## Capturas de pantalla
 A continuación se muestran algunas capturas de pantalla de la aplicación en un dispositivo móvil.
-![mobile1](./app/assets/screenshots/Mobile1.png)  
-![mobile2](./app/assets/screenshots/Mobile2.png)  
-![mobile3](./app/assets/screenshots/Mobile3.png)  
-![mobile4](./app/assets/screenshots/Mobile4.png)  
-![mobile5](./app/assets/screenshots/Mobile5.png)  
+![mobile1](./app/assets/screenshots/Mobile1.png) 
+![mobile2](./app/assets/screenshots/Mobile2.png) 
+![mobile3](./app/assets/screenshots/Mobile3.png) 
+![mobile4](./app/assets/screenshots/Mobile4.png) 
+![mobile5](./app/assets/screenshots/Mobile5.png) 
 
 ## Créditos
 Este proyecto se creó a partir de un video tutorial del canal "Sonny Sangha" en YouTube. El enlace al video tutorial es https://www.youtube.com/watch?v=taPz40VmyzQ&list=PLSvtEtsyp827IO6bk6BTO-vXDK3RIV32H.

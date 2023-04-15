@@ -25,4 +25,4 @@ A diferencia del proyecto en el video tutorial, en este proyecto se utilizó Typ
 
 ## Enlace
 Para ver la aplicación, puede escanear el siguiente código QR con la aplicación Expo Go:
-![QR de la app](https://expo.dev/@yeisonhernandez/NTF-Marketplace?serviceType=classic&distribution=expo-go)
+![QR de la app](./app/assets/screenshots/QRExpo.jpg)

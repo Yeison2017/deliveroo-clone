@@ -21,7 +21,7 @@ A continuación se muestran algunas capturas de pantalla de la aplicación en un
 Este proyecto se creó a partir de un video tutorial del canal "Sonny Sangha" en YouTube. El enlace al video tutorial es https://www.youtube.com/watch?v=taPz40VmyzQ&list=PLSvtEtsyp827IO6bk6BTO-vXDK3RIV32H.
 
 ## Comparación entre el proyecto y el video tutorial
-A diferencia del proyecto en el video tutorial, en este proyecto se utilizó TypeScript en lugar de JavaScript. Además, se utilizó Sanity como backend en lugar de Firebase.
+A diferencia del proyecto en el video tutorial, en este proyecto se utilizó TypeScript en lugar de JavaScript. Además, se utilizó Sanity como backend.
 
 ## Enlace
 Para ver la aplicación, puede escanear el siguiente código QR con la aplicación Expo Go:
